@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        android:fontFamily="@font/allerta"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewProfilePicture" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"
+        android:fontFamily="@font/allerta"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextFirstName" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:hint="Email"
+        android:fontFamily="@font/allerta"
+        android:layout_marginTop="15dp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextLastName" />
+
+    <ImageView
+        android:id="@+id/imageViewProfilePicture"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="-50dp"
+        android:clickable="true"
+        android:src="@drawable/profile_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGroups"
+        android:layout_width="300dp"
+        android:text="Groups"
+        android:textSize="25sp"
+        android:backgroundTint="#1F4C67"
+        android:fontFamily="@font/allerta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextEmail"/>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="300dp"
+        android:text="SAVE"
+        android:textSize="25sp"
+        android:backgroundTint="#1F4C67"
+        android:fontFamily="@font/allerta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonGroups"/>
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="300dp"
+        android:text="Delete"
+        android:textSize="25sp"
+        android:backgroundTint="#1F4C67"
+        android:fontFamily="@font/allerta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonSave" />
+
+    <Button
+        android:id="@+id/buttonLogOut"
+        android:layout_width="300dp"
+        android:text="LOG OUT"
+        android:textSize="25sp"
+        android:backgroundTint="#1F4C67"
+        android:fontFamily="@font/allerta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonDelete"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

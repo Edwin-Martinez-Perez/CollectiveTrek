@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="eventData"
+            type="com.example.collectivetrek.database.Event" />
+        <variable
+            name="clickListener"
+            type="com.example.collectivetrek.EventItineraryListener" />
+        <variable
+            name="itineraryFragment"
+            type="com.example.collectivetrek.fragments.ItineraryFragment" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:background="@drawable/itinerary_box">
+
+            <!-- TODO text (pin number) can change by <data><variabke>-->
+            <TextView
+                android:id="@+id/event_pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pin_circle"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/event_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="100dp"
+                android:maxHeight="100dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/delete_button"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/delete_button"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:src="@drawable/threedots"
+                android:background="@null"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/place_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:maxWidth="180dp"
+                android:textSize="20dp"
+                android:textColor="#001a40"
+                android:fontFamily="@font/allerta"
+                android:text="@{eventData.placeName}"
+                tools:text="Place Name"
+                app:layout_constraintStart_toEndOf="@+id/event_pin"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/address_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:layout_marginHorizontal="10dp"
+                android:maxWidth="200dp"
+                android:minHeight="0dp"
+                android:textSize="18dp"
+                android:textColor="#001a40"
+                android:text="@{eventData.address}"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="@{() -> itineraryFragment.openMap(eventData.address)}"
+                android:layout_marginTop="5dp"
+                tools:text="123 W Sample Street, SA, United States"
+                app:layout_constraintStart_toEndOf="@+id/event_pin"
+                app:layout_constraintTop_toBottomOf="@id/event_pin"/>
+
+            <TextView
+                android:id="@+id/event_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:textSize="12dp"
+                android:fontFamily="@font/allerta"
+                android:textColor="#001a40"
+                android:text="@{eventData.date}"
+                tools:text="Jan 20, 2024"
+                app:layout_constraintTop_toBottomOf="@id/address_text"
+                app:layout_constraintStart_toStartOf="@+id/place_name_text"/>
+
+            <TextView
+                android:id="@+id/event_note_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxHeight="70dp"
+                android:minHeight="0dp"
+                android:textSize="12dp"
+                android:fontFamily="@font/allerta"
+                android:textColor="#001a40"
+                android:text="@{eventData.note}"
+                tools:text="Add note here"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@id/event_date_text"
+                app:layout_constraintStart_toStartOf="@id/place_name_text"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
